@@ -8,6 +8,7 @@ from config import TELEGRAM_TOKEN, YANIMG_TOKEN
 API_KEY = TELEGRAM_TOKEN
 bot = Bot(token=API_KEY)
 dp = Dispatcher(bot)
+print("IDKDFKRGFRETNGT")
 
 @dp.message_handler(commands = 'start')
 async def func_start(message: types.Message):
@@ -19,7 +20,7 @@ def generate_image(prompt_text):
             "generationOptions": {
                 "seed": randint(10000, 20000000000)
         },
-        "messages": [ #@okjrnhgferjgretgert
+        "messages": [ #@okjrnhgferjgretgertdfdsfewfewrsdfwef
           {
             "weight": 1,
             "text": prompt_text
