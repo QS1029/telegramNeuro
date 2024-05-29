@@ -19,7 +19,7 @@ def generate_image(prompt_text):
             "generationOptions": {
                 "seed": randint(10000, 20000000000)
         },
-        "messages": [
+        "messages": [ #@okjrnhgferjgretgert
           {
             "weight": 1,
             "text": prompt_text
