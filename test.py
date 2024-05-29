@@ -3,8 +3,9 @@ import base64
 import time
 from random import randint
 from aiogram import executor, Dispatcher, Bot, types
+from config import TELEGRAM_TOKEN, YANIMG_TOKEN
 
-API_KEY = "7190129804:AAHimHvNIR3Qa2oGo-O_ZukHgjZOyssysBM"
+API_KEY = TELEGRAM_TOKEN
 bot = Bot(token=API_KEY)
 dp = Dispatcher(bot)
 
@@ -29,7 +30,7 @@ def generate_image(prompt_text):
     url =  "https://llm.api.cloud.yandex.net/foundationModels/v1/imageGenerationAsyn"
     headers = { #greger
         "Content-Type": "application/json",
-        "Authorization": "Api-Key AQVNyT4NfggL6Tr_wJ4law22tPgQwvBEbwRe4IAm"
+        "Authorization": f"{YANIMG_TOKEN}"
     }
 
     response = requests.post(url=url, headers=headers, json=prompt)
