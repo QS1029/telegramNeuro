@@ -2,22 +2,21 @@ import requests
 import base64
 import time
 from random import randint
-from aiogram import executor, Dispatcher, Bot, types
-from config import TELEGRAM_TOKEN, YANIMG_TOKEN
+from config import YANIMG_TOKEN
 
-API_KEY = TELEGRAM_TOKEN
-bot = Bot(token=API_KEY)
-dp = Dispatcher(bot)
+# API_KEY = TELEGRAM_TOKEN
+# bot = Bot(token=API_KEY)
+# dp = Dispatcher(bot)
 
-@dp.message_handler(commands = 'start')
-async def func_start(message: types.Message):
-    await message.answer("Приветик. Я твой шедеврум за 20 копеек.")
+# @dp.message_handler(commands = 'start')
+# async def func_start(message: types.Message):
+#     await message.answer("Приветик. Я твой шедеврум за 20 копеек.")
 
 def generate_image(prompt_text):
     prompt = {
             "modelUri": "art://b1g3f13cj7d6d3ss2md9/yandex-art/latest",
             "generationOptions": {
-                "seed": randint(10000, 20000000000)
+                "seed": randint(10000, 20000000)
         },
         "messages": [
           {
@@ -49,16 +48,16 @@ def generate_image(prompt_text):
         else:
             time.sleep(5)
 
-@dp.message_handler()
-async def handle_message(message: types.Message):
-    user_text = message.text
-    await message.reply('Генерирую, жди.')
-    #try:
-    image_data = generate_image(user_text)
-    await message.reply_photo(photo=image_data)
-    #except Exception as e:
-    #await message.reply(f"Произошла ошибка, wallahi... {e}")
+# @dp.message_handler()
+# async def handle_message(message: types.Message):
+#     user_text = message.text
+#     await message.reply('Генерирую, жди.')
+#     #try:
+#     image_data = generate_image(user_text)
+#     await message.reply_photo(photo=image_data)
+#     #except Exception as e:
+#     #await message.reply(f"Произошла ошибка, wallahi... {e}")
+#
 
-
-if __name__ == '__main__':
-    executor.start_polling(dp, skip_updates=True)
+# if __name__ == '__main__':
+#     executor.start_polling(dp, skip_updates=True)

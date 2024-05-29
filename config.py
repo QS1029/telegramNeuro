@@ -5,3 +5,4 @@ load_dotenv()
 
 TELEGRAM_TOKEN = os.getenv('API_KEY')
 YANIMG_TOKEN = os.getenv('YAN_IMG_KEY')
+YANCONV_TOKEN = os.getenv('YAN_CONV_KEY')
