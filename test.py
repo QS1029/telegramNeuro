@@ -8,7 +8,6 @@ from config import TELEGRAM_TOKEN, YANIMG_TOKEN
 API_KEY = TELEGRAM_TOKEN
 bot = Bot(token=API_KEY)
 dp = Dispatcher(bot)
-print("IDKDFKRGFRETNGT")
 
 @dp.message_handler(commands = 'start')
 async def func_start(message: types.Message):
@@ -20,7 +19,7 @@ def generate_image(prompt_text):
             "generationOptions": {
                 "seed": randint(10000, 20000000000)
         },
-        "messages": [ #@okjrnhgferjgretgertdfdsfewfewrsdfwef
+        "messages": [
           {
             "weight": 1,
             "text": prompt_text
@@ -31,7 +30,7 @@ def generate_image(prompt_text):
     url =  "https://llm.api.cloud.yandex.net/foundationModels/v1/imageGenerationAsyn"
     headers = { #greger
         "Content-Type": "application/json",
-        "Authorization": f"{YANIMG_TOKEN}"
+        "Authorization": f"Api-Key {YANIMG_TOKEN}"
     }
 
     response = requests.post(url=url, headers=headers, json=prompt)
